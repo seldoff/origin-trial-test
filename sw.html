@@ -8,10 +8,26 @@
 <body>
     <h1>Service Worker Example</h1>
     <p id="status">Checking service worker support...</p>
+    
+    <button onclick="testFetch()">Test Fetch</button>
+    <p id="fetch-result"></p>
+
+    <script>
+        function testFetch() {
+            fetch('./test-data.json')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('fetch-result').textContent = 'Fetch successful: ' + data;
+                })
+                .catch(error => {
+                    document.getElementById('fetch-result').textContent = 'Fetch failed: ' + error.message;
+                });
+        }
+    </script>
 
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js')
+            navigator.serviceWorker.register('./service-worker.js')
                 .then(registration => {
                     console.log('Service Worker registered:', registration);
                     document.getElementById('status').textContent = 'Service Worker registered successfully!';
