@@ -11,7 +11,7 @@
 
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./service-worker.js')
+            navigator.serviceWorker.register('./sw.js')
                 .then(registration => {
                     console.log('Service Worker registered:', registration);
                     document.getElementById('status').textContent = 'Service Worker registered successfully!';
