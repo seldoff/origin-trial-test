@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Worker</title>
+    <title>Service Worker Example</title>
 </head>
 <body>
-    <div id="status" class="status info">Checking service worker status...</div>
-    <div id="response"></div>
+    <h1>Service Worker Example</h1>
+    <p id="status">Checking service worker support...</p>
 
     <script>
-        // Register service worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('./service-worker.js')
                 .then(registration => {
-                    console.log('Service Worker registered successfully:', registration);
-                    document.getElementById('status').innerHTML = 
-                        '<span class="success">✓ Service Worker registered successfully!</span>';
+                    console.log('Service Worker registered:', registration);
+                    document.getElementById('status').textContent = 'Service Worker registered successfully!';
                 })
                 .catch(error => {
-                    console.log('Service Worker registration failed:', error);
-                    document.getElementById('status').innerHTML = 
-                        '<span class="error">✗ Service Worker registration failed: ' + error + '</span>';
+                    console.error('Service Worker registration failed:', error);
+                    document.getElementById('status').textContent = 'Service Worker registration failed';
                 });
         } else {
-            document.getElementById('status').innerHTML = 
-                '<span class="error">✗ Service Workers are not supported in this browser</span>';
+            document.getElementById('status').textContent = 'Service Workers not supported';
         }
     </script>
 </body>
