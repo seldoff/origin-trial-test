@@ -8,5 +8,5 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     console.log('Service Worker intercepted:', event.request.url);
-    event.respondWith(new Promise());
+    event.respondWith(new Promise(() => {}));
 });
