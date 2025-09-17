@@ -1,12 +1,11 @@
 self.addEventListener('install', event => {
-    //console.log('Service Worker installing...');
+    console.log('Service Worker installed');
 });
 
 self.addEventListener('activate', event => {
-    //console.log('Service Worker activating...');
+    console.log('Service Worker activated');
 });
 
 self.addEventListener('fetch', event => {
-    //console.log("fetch request")
-    //event.respondWith(new Promise())
+    console.log('Service Worker intercepted:', event.request.url);
 });
