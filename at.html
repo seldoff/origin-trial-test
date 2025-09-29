@@ -18,7 +18,7 @@ for await (const chunk of stream) {
 } 
       }    
 
-      poem.then(() => console.log('done'), e => console.error(e))
+      poem().then(() => console.log('done'), e => console.error(e))
     </script>
   </head>
   <body>Hello World</body>
