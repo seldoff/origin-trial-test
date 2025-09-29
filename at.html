@@ -5,7 +5,10 @@
     <meta http-equiv="origin-trial" content="AiITEDgmCCiLHw8wISuSjT3C/U9v5KA8R1jvjBT+vUTmSt8x1jGwVWLJ7C6JuARkhg81rjbMU9CVk5vc3ox2NwQAAABjeyJvcmlnaW4iOiJodHRwczovL3NlbGRvZmYuZ2l0aHViLmlvOjQ0MyIsImZlYXR1cmUiOiJTb2Z0TmF2aWdhdGlvbkhldXJpc3RpY3MiLCJleHBpcnkiOjE3NzMxMDA4MDB9">
     <script>
       async function poem() {
-       const session = await LanguageModel.create();
+       const session = await LanguageModel.create({expectedOutputs: [{
+    type: "text",
+    languages: ["en"]
+  }]});
 
 // Prompt the model and wait for the whole result to come back.
 const result = await session.prompt("Write me a poem.");
