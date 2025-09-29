@@ -3,6 +3,19 @@
     <meta http-equiv="origin-trial" content="AsP9EvrbJ+4OuDkLXg1n6cIFEbdn3fzLdyUab0i6GMU4qp/wVopJEgaRNOZPfFWcaUujDZSZxecClMFiZvQ8ngwAAABleyJvcmlnaW4iOiJodHRwczovL3NlbGRvZmYuZ2l0aHViLmlvOjQ0MyIsImZlYXR1cmUiOiJBSVByb21wdEFQSU11bHRpbW9kYWxJbnB1dCIsImV4cGlyeSI6MTc3NDMxMDQwMH0=">
     <meta http-equiv="origin-trial" content="A3iIqe9W2z9RJ4k9Xk8LCSW2YwyDZWox6tVtn/BMPuF3aG0WTUQruheCGp6sQA/Tqu2GW6BjdCFnenpyi4mlJOgAAABleyJvcmlnaW4iOiJodHRwczovL3NlbGRvZmYuZ2l0aHViLmlvOjQ0MyIsImZlYXR1cmUiOiJBSVByb21wdEFQSU11bHRpbW9kYWxJbnB1dCIsImV4cGlyeSI6MTc1ODk4ODEwMH0=">
     <meta http-equiv="origin-trial" content="AiITEDgmCCiLHw8wISuSjT3C/U9v5KA8R1jvjBT+vUTmSt8x1jGwVWLJ7C6JuARkhg81rjbMU9CVk5vc3ox2NwQAAABjeyJvcmlnaW4iOiJodHRwczovL3NlbGRvZmYuZ2l0aHViLmlvOjQ0MyIsImZlYXR1cmUiOiJTb2Z0TmF2aWdhdGlvbkhldXJpc3RpY3MiLCJleHBpcnkiOjE3NzMxMDA4MDB9">
+    <script>
+      const session = await LanguageModel.create();
+
+// Prompt the model and wait for the whole result to come back.
+const result = await session.prompt("Write me a poem.");
+console.log(result);
+
+// Prompt the model and stream the result:
+const stream = session.promptStreaming("Write me an extra-long poem.");
+for await (const chunk of stream) {
+  console.log(chunk);
+}
+    </script>
   </head>
   <body>Hello World</body>
 </html>
